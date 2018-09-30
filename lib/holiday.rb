@@ -47,30 +47,15 @@ end
 
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
-    if season == :winter
-      puts "Winter:"
-      holiday.each do |holiday, supply| 
-         puts "#{holiday.capitalize}:   #{supply.flatten.join", "}"
+    puts "#{season.to_s.capitalize}:"
+      holiday.each do |name, supply|
+        final_events = []
+        events = name.to_s.split('_')
+          events.each do |element|
+            final_events << element.capitalize
+          end
+        puts "#{final_events.join(" ")}: #{supply.join(", ")}"
       end
-    end
-    if season == :summer
-      puts "Summer:"
-      holiday.each do |holiday, supply| 
-         puts "#{holiday.capitalize}:   #{supply.flatten.join", "}"
-      end
-    end
-    if season == :fall
-      puts "Fall:"
-      holiday.each do |holiday, supply| 
-         puts "#{holiday.capitalize}:   #{supply.flatten.join", "}"
-      end
-    end
-    if season == :spring
-      puts "Spring:"
-      holiday.each do |holiday, supply| 
-         puts "#{holiday.capitalize}:   #{supply.flatten.join", "}"
-      end
-    end
   end
 end
 
